@@ -1,9 +1,64 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Heiume GitHub</title>
-  </head>
-  <body>
-    <h1>owo</h1>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/kaboom/dist/kaboom.js"></script>
+</head>
+
+<body>
+    <script>
+
+        //bg
+        kaboom
+            ({
+                background: [8, 38, 68],
+            })
+
+        //ground
+        add([
+            rect(width(), 100),
+            pos(0, height() - 100),
+            area(),
+            color(13, 0, 3)
+        ])
+
+        //fire
+        loadSprite("fire", "/sprites/fire.png")
+        loadSprite("fire2", "/sprites/fire2.png")
+
+        const fire = add
+            ([
+                origin("center"),
+                pos(center()),
+                sprite("fire"),
+            ])
+
+
+        loop(0.1, () => {
+
+
+            const item = add
+                ([
+                    origin("center"),
+                    pos(center()),
+                    sprite("fire2"),
+                    scale(rand(0.1, 1)),
+                    area(),
+                    rotate(rand(0, 180)),
+                    color(255, 255, rand(50, 255)),
+                    body({ solid: false, }),
+                    lifespan(1, { fade: 0.5 }),
+                    move(choose([LEFT, RIGHT]), rand(50, 50)),
+                ])
+            item.jump(rand(100, 500))
+        })
+
+
+    </script>
+</body>
+
 </html>
