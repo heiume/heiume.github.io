@@ -1,128 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heiume Github</title>
-    <script src="https://unpkg.com/kaboom/dist/kaboom.js"></script>
-
-    //
-    <script>src = "script.js"</script>
-    //
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <script>
-
-        //bg
-        kaboom
-            ({
-                background: [8, 38, 68],
-                burp: true
-            })
-
-        let curSize = 48
-        const pad = 24
-
-        const input = add([
-            pos(pad),
-            // Render text with the text() component
-            text("Heiume", {
-                // Transform each character for special effects
-                transform: (idx, ch) => ({
-                    color: hsl2rgb((time() * 0.2 + idx * 0.1) % 1, 0.7, 0.8),
-                    pos: vec2(0, wave(-4, 4, time() * 4 + idx * 0.5)),
-                    scale: wave(1, 1.2, time() * 3 + idx),
-                    angle: wave(-9, 9, time() * 3 + idx),
-                }),
-            }),
-        ])
-
-        //burp
-        onClick(burp)
-
-        //ground
-        add([
-            rect(width(), 400),
-            pos(0, height() - 400),
-            area(),
-            color(13, 0, 3)
-        ])
-
-        //fire
-        loadSprite("fire", "/sprites/fire.png")
-        loadSprite("fire2", "/sprites/fire2.png")
-
-        const fire = add
-            ([
-                origin("center"),
-                pos(center()),
-                sprite("fire"),
-            ])
-
-
-        loop(0.5, () => {
-
-
-            const item = add
-                ([
-                    origin("center"),
-                    pos(center()),
-                    sprite("fire2"),
-                    scale(rand(0.1, 0.5)),
-                    area(),
-                    rotate(rand(0, 180)),
-                    color(255, 255, rand(50, 255)),
-                    body({ solid: false, }),
-                    lifespan(1, { fade: 0.5 }),
-                    move(choose([LEFT, RIGHT]), rand(50, 50)),
-                ])
-            item.jump(rand(0, 500))
-        })
-
-        //textbox
-        const dialogs = [
-            ["fire", "hi my butterfly"],
-            ["fire", "i love u"],
-        ]
-
-        let curDialog = 0
-
-        const textbox = add([
-            rect(width() - 600, 140, { radius: 28 }),
-            origin("center"),
-            pos(center().x, height() - 200),
-            color(30, 30, 30),
-        ])
-        const txt = add([
-            text("", { size: 32, width: width() - 700 }),
-            pos(textbox.pos),
-            origin("center")
-        ])
-
-        onKeyPress("space", () => {
-            // Cycle through the dialogs
-            curDialog = (curDialog + 1) % dialogs.length
-            updateDialog()
-        })
-
-        function updateDialog() {
-
-            const [char, dialog] = dialogs[curDialog]
-
-            // Use a new sprite component to replace the old one
-            //avatar.use(sprite(char))
-            // Update the dialog text
-            txt.text = dialog
-
-        }
-        updateDialog()
-
-    </script>
-</body>
-
-</html>
+<canvas id="ctx" width="500" height="500" style="border:1px solid #000000;"></canvas>
+ 
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script>
+	var ctx = document.getElementById("ctx").getContext("2d");
+	ctx.font = '30px Arial';
+ 
+	var socket = io();
+ 
+	socket.on('newPositions',function(data){
+		ctx.clearRect(0,0,500,500);
+		for(var i = 0 ; i < data.length; i++)
+			ctx.fillText(data[i].number,data[i].x,data[i].y);		
+	});
+ 
+	document.onkeydown = function(event){
+		if(event.keyCode === 68)	//d
+			socket.emit('keyPress',{inputId:'right',state:true});
+		else if(event.keyCode === 83)	//s
+			socket.emit('keyPress',{inputId:'down',state:true});
+		else if(event.keyCode === 65) //a
+			socket.emit('keyPress',{inputId:'left',state:true});
+		else if(event.keyCode === 87) // w
+			socket.emit('keyPress',{inputId:'up',state:true});
+ 
+	}
+	document.onkeyup = function(event){
+		if(event.keyCode === 68)	//d
+			socket.emit('keyPress',{inputId:'right',state:false});
+		else if(event.keyCode === 83)	//s
+			socket.emit('keyPress',{inputId:'down',state:false});
+		else if(event.keyCode === 65) //a
+			socket.emit('keyPress',{inputId:'left',state:false});
+		else if(event.keyCode === 87) // w
+			socket.emit('keyPress',{inputId:'up',state:false});
+	}
+ 
+</script>
