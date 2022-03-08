@@ -22,6 +22,9 @@ const mapData = {
 // Options for Player Colors... these are in the same order as our sprite sheet
 const playerColors = ["blue", "red", "orange", "yellow", "green", "purple"];
 
+`const playerEar = ["1", "2", "3", "4"];`
+  `const playerHead = ["1", "2", "3", "4"];`
+
 //Misc Helpers
 function randomFromArray(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -70,7 +73,7 @@ function createName() {
   return `${prefix} ${animal}`;
 }
 
-function isSolid(x,y) {
+function isSolid(x, y) {
 
   const blockedNextSpace = mapData.blockedSpaces[getKeyString(x, y)];
   return (
@@ -152,7 +155,7 @@ function getRandomSafeSpot() {
   }
 
 
-  function handleArrowPress(xChange=0, yChange=0) {
+  function handleArrowPress(xChange = 0, yChange = 0) {
     const newX = players[playerId].x + xChange;
     const newY = players[playerId].y + yChange;
     if (!isSolid(newX, newY)) {
@@ -257,9 +260,9 @@ function getRandomSafeSpot() {
       gameContainer.appendChild(coinElement);
     })
     allCoinsRef.on("child_removed", (snapshot) => {
-      const {x,y} = snapshot.val();
-      const keyToRemove = getKeyString(x,y);
-      gameContainer.removeChild( coinElements[keyToRemove] );
+      const { x, y } = snapshot.val();
+      const keyToRemove = getKeyString(x, y);
+      gameContainer.removeChild(coinElements[keyToRemove]);
       delete coinElements[keyToRemove];
     })
 
@@ -297,9 +300,11 @@ function getRandomSafeSpot() {
       const name = createName();
       playerNameInput.value = name;
 
-      const {x, y} = getRandomSafeSpot();
+      const { x, y } = getRandomSafeSpot();
 
 
+      `eartype: randomFromArray(playerEar),
+        bodytype: randomFromArray(playerBody),`
       playerRef.set({
         id: playerId,
         name,
