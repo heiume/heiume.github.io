@@ -13,15 +13,6 @@ html, body {
   justify-content: center;
 }
 
-.game-container { 
-  position: relative;
-  width: 240px;
-  height: 208px;
-  background: url(/images/map.png) no-repeat no-repeat;
-  transform: scale(3);
-  image-rendering: pixelated;
-}
-
 .game-ground { 
   position:absolute;
   width: 100%;
@@ -32,11 +23,12 @@ html, body {
 
 .game-fire { 
   position:absolute;
-  width: 200px;
-  height: 100px;
+  width: 254px;
+  height: 254px;
+
   bottom:200px;
-  transform: scale(2);
-  background: url(/images/demo-player.png) no-repeat no-repeat;
+  transform: scale(1);
+  background: url(/images/fire.png) no-repeat no-repeat;
 }
 
 .player-info {
@@ -56,6 +48,7 @@ label {
 }
 
 input[type="text"],
+
 button {
   font-family: inherit;
   font-weight: bold;
@@ -72,6 +65,7 @@ input[type="text"] {
   width: 150px;
   text-transform: uppercase;
 }
+
 input[type="text"]:focus {
   border-color: #f000ff;
 }
@@ -84,18 +78,16 @@ button {
   border-bottom: 2px solid #1e830b;
   cursor: pointer;
 }
+
 button:active {
   position: relative;
   top: 1px;
 }
 
 /* Characters */
-.grid-cell {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-}
 .Character {
+  width: 128px;
+  height: 128px;
   transition: transform 0.4s;
 }
 .Character.you {
@@ -107,7 +99,7 @@ button:active {
 .Character_you-arrow {
   display: none;
   position: absolute;
-  top:-18px;
+  top:-128px;
   left: 5px;
   width: 7px;
   height: 5px;
@@ -116,32 +108,14 @@ button:active {
 .Character_sprite {
   overflow: hidden;
   top: -3px;
-  background: url(/images/characters.png);
-}
-.Character[data-direction="right"] .Character_sprite {
-  background-position-x: 16px;
-}
-.Character[data-color="red"] .Character_sprite {
-  background-position-y: -16px;
-}
-.Character[data-color="orange"] .Character_sprite {
-  background-position-y: -32px;
-}
-.Character[data-color="yellow"] .Character_sprite {
-  background-position-y: -48px;
-}
-.Character[data-color="green"] .Character_sprite {
-  background-position-y: -64px;
-}
-.Character[data-color="purple"] .Character_sprite {
-  background-position-y: -80px;
+  background: url(/images/character.png);
 }
 .Character_shadow {
   background: url(/images/shadow.png) no-repeat no-repeat;
 }
 .Character_name-container {
   position: absolute;
-  top: -12px;
+  top: -128px;
   left: -5px;
   font-size: 5px;
   padding: 1px 2px 1px;
@@ -151,25 +125,4 @@ button:active {
   font-weight: bold;
   text-transform: uppercase;
   white-space: nowrap;
-}
-.Character_coins {
-  margin-left: 1px;
-  color: gold;
-}
-
-/* Coins */
-.Coin_sprite {
-  background: url(/images/coin.png) no-repeat no-repeat;
-  animation: coinFloat 0.8s linear infinite alternate-reverse;
-}
-@keyframes coinFloat {
-  from { transform: translateY(0) }
-  to { transform: translateY(5px) }
-}
-.Coin_shadow {
-  background: url(/images/coin-shadow.png) no-repeat no-repeat;
-}
-
-.DemoCharacter_sprite {
-  background: url(/images/demo-player.png);
 }
