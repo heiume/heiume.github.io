@@ -9,6 +9,11 @@
 </head>
 
 <body>
+
+  <audio loop autostart>
+    <source src="campfireloop.wav" type="audio/wav">
+  </audio>
+
   <div class="player-info">
     <div>
       <label for="player-name">Your Name</label>
@@ -26,7 +31,7 @@
   </div>
   <div class="game-fire">
   </div>
-  
+
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
@@ -43,7 +48,7 @@
       measurementId: "G-KBNJ6BQ6YT"
     };
     firebase.initializeApp(firebaseConfig);
-  </script> 
+  </script>
 
   <script src="/KeyPressListener.js"></script>
   <script src="/app.js"></script>
