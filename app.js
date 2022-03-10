@@ -61,6 +61,9 @@ function isSolid(x, y) {
 function randomPosX() {
   return Math.floor((Math.random() * 100) + 1);
 }
+function PosY(){
+  return 38;
+}
 
 function getRandomSafeSpot() {
   //We don't look things up by key here, so just return an x/y
@@ -112,11 +115,12 @@ function getRandomSafeSpot() {
       Object.keys(players).forEach((key) => {
         const characterState = players[key];
         let el = playerElements[key];
+
         // Now update the DOM
         el.querySelector(".Character_name").innerText = characterState.name;
         const left = 16 * characterState.x + "px";
-        const top = 16 * characterState.y - 4 + "px";
-        el.style.transform = `translate3d(${left}, ${top}, 0)`;
+        const bottom = 16 * characterState.y - 4 + "px";
+        el.style.transform = `translate3d(${left}, ${bottom}, 0)`;
       })
     })
     allPlayersRef.on("child_added", (snapshot) => {
@@ -148,8 +152,8 @@ function getRandomSafeSpot() {
       characterElement.setAttribute("data-ear",).addedPlayer.head;`
       //pos
       const left = 16 * addedPlayer.x + "px";
-      const top = 16 * addedPlayer.y - 4 + "px";
-      characterElement.style.transform = `translate3d(${left}, ${top}, 0)`;
+      const bottom = 16 * addedPlayer.y - 4 + "px";
+      characterElement.style.transform = `translate3d(${left}, ${bottom}, 0)`;
       //show on ground
       gameContainer.appendChild(characterElement);
 

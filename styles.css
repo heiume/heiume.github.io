@@ -13,10 +13,6 @@ html, body {
   justify-content: center;
 }
 
-audio { 
-  display:none;
-}
-
 .game-ground { 
   position:absolute;
   width: 100%;
@@ -122,7 +118,6 @@ button:active {
 .Character_sprite {
   background: url(/images/character.png);
 }
-
 /* container*/
 .Character_name-container {
   position: absolute;

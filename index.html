@@ -10,9 +10,14 @@
 
 <body>
 
-  <audio loop autostart>
-    <source src="campfireloop.wav" type="audio/wav">
-  </audio>
+  <embed src="campfireloop.wav" hidden="true" autostart="true" loop="10">
+
+  <div class="game-container">
+  </div>
+  <div class="game-ground">
+  </div>
+  <div class="game-fire">
+  </div>
 
   <div class="player-info">
     <div>
@@ -23,13 +28,6 @@
       <button id="player-ear">Change Ear</button>
       <button id="player-head">Change Head</button>
     </div>
-  </div>
-
-  <div class="game-container">
-  </div>
-  <div class="game-ground">
-  </div>
-  <div class="game-fire">
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
