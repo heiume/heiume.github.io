@@ -36,12 +36,17 @@ function createName() {
   return `${prefix} ${animal}`;
 }
 
+function randomPosX()
+{
+  return Math.floor((Math.random() * 100) + 1);
+}
+
 function getRandomSafeSpot() {
   //We don't look things up by key here, so just return an x/y
   return randomFromArray([
-    { x: 1, y: 38 },
-    { x: 2, y: 38 },
-    { x: 3, y: 36 },
+    { x: randomPosX(), y: 38 },
+    { x: randomPosX(), y: 38 },
+    { x: randomPosX(), y: 38 },
   ]);
 }
 

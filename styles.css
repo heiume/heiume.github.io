@@ -112,9 +112,7 @@ button:active {
 .Character_sprite {
   background: url(/images/character.png);
 }
-.Character_shadow {
-  background: url(/images/shadow.png) no-repeat no-repeat;
-}
+
 /* container*/
 .Character_name-container {
   position: absolute;
