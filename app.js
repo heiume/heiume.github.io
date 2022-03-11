@@ -8,8 +8,8 @@ const mapData = {
 };
 
 // Options for Player Colors... these are in the same order as our sprite sheet
-const playerEar = ["1", "2", "3", "4"];
-const playerHead = ["1", "2", "3", "4"];
+const playerEar = ["ear1", "ear2", "ear3", "ear4"];
+const playerHead = ["head1", "head2", "head3", "head4"];
 
 function randomFromArray(array) {
   return array[Math.floor(Math.random() * array.length)];
@@ -81,6 +81,9 @@ function getRandomSafeSpot() {
   const playerNameInput = document.querySelector("#player-name");
   const gameContainer = document.querySelector(".game-container");
 
+  const playerEarButton = document.querySelector("#player-ear");
+  const playerHeadButton = document.querySelector("#player-head");
+
 
   function handleArrowPress(xChange=0, yChange=0) {
     const newX = players[playerId].x + xChange;
@@ -108,6 +111,7 @@ function getRandomSafeSpot() {
 
 
     const allPlayersRef = firebase.database().ref(`players`);
+    console.log(allPlayersRef) 
 
     allPlayersRef.on("value", (snapshot) => {
       //player join and quit occurs
@@ -118,6 +122,9 @@ function getRandomSafeSpot() {
 
         // Now update the DOM
         el.querySelector(".Character_name").innerText = characterState.name;
+        el.setAttribute("data-ear", characterState.ear);
+        el.setAttribute("data-head", characterState.head);
+
         const left = 16 * characterState.x + "px";
         const bottom = 16 * characterState.y - 4 + "px";
         el.style.transform = `translate3d(${left}, ${bottom}, 0)`;
@@ -129,12 +136,15 @@ function getRandomSafeSpot() {
       const characterElement = document.createElement("div");
       //player Img
       characterElement.classList.add("Charater", "grid-cell");
+
       if (addedPlayer.id === playerId) {
         characterElement.classList.add("you");
       }
       characterElement.innerHTML = (`
       <div class="Character_shadow grid-cell"></div>
       <div class="Character_sprite grid-cell"></div>
+      <div class="Character_ear grid-cell"></div>
+      <div class="Character_head grid-cell"></div>
       <div class="Character_name-container">
         <span class="Character_name"></span>
         <span class="Character_coins">0</span>
@@ -146,10 +156,10 @@ function getRandomSafeSpot() {
 
       //Init State
       characterElement.querySelector(".Character_name").innerText = addedPlayer.name;
-      `//ear
-      characterElement.setAttribute("data-ear",).addedPlayer.ear;
+      //ear
+      characterElement.setAttribute("data-ear",addedPlayer.ear);
       //face
-      characterElement.setAttribute("data-ear",).addedPlayer.head;`
+      characterElement.setAttribute("data-head",addedPlayer.head);
       //pos
       const left = 16 * addedPlayer.x + "px";
       const bottom = 16 * addedPlayer.y - 4 + "px";
@@ -174,6 +184,24 @@ function getRandomSafeSpot() {
       })
     })
     //
+
+    playerEarButton.addEventListener("click", () => {
+      const myEarIndex = playerEar.indexOf(players[playerId].ear);
+      const nextEar = playerEar[myEarIndex + 1] || playerEar[0];
+      playerRef.update({
+        ear: nextEar
+      })
+    })
+
+    playerHeadButton.addEventListener("click", () => {
+      const myHeadIndex = playerHead.indexOf(players[playerId].head);
+      const nextHead = playerHead[myHeadIndex + 1] || playerHead[0];
+      playerRef.update({
+        head: nextHead
+      })
+    })
+
+
   }
 
   firebase.auth().onAuthStateChanged((user) => {
@@ -188,18 +216,20 @@ function getRandomSafeSpot() {
       playerNameInput.value = name;
 
       `eartype: randomFromArray(playerEar),
-        bodytype: randomFromArray(playerBody),`
+      headtype: randomFromArray(playerHead),`
 
       const { x, y } = getRandomSafeSpot();
 
       playerRef.set({
         id: playerId,
         name,
+        ear: randomFromArray(playerEar),
+        head: randomFromArray(playerHead),
         x,
         y,
       })
 
-      //Remove me from Firebase when I diconnect
+      //Remove me from Firebase when I disconnect
       playerRef.onDisconnect().remove();
       //Begin the game now that we are signed in
       initGame();

@@ -116,7 +116,37 @@ button:active {
   background: url(/images/arrow.png) no-repeat no-repeat;
 }
 .Character_sprite {
-  background: url(/images/character.png);
+  background: url(/images/body.png);
+}
+.Character_ear {
+  background: url(/images/ear.png);
+}
+.Character[data-ear="ear1"] .Character_ear {
+  background-position-x: 0px;
+}
+.Character[data-ear="ear2"] .Character_ear {
+  background-position-x: 128px;
+}
+.Character[data-ear="ear3"] .Character_ear {
+  background-position-x: 256px;
+}
+.Character[data-ear="ear4"] .Character_ear {
+  background-position-x: 384px;
+}
+.Character_head {
+  background: url(/images/head.png);
+}
+.Character[data-head="head1"] .Character_head {
+  background-position-x: 0px;
+}
+.Character[data-head="head2"] .Character_head {
+  background-position-x: 128px;
+}
+.Character[data-head="head3"] .Character_head {
+  background-position-x: 256px;
+}
+.Character[data-head="head4"] .Character_head {
+  background-position-x: 384px;
 }
 /* container*/
 .Character_name-container {
