@@ -1,167 +1,224 @@
 * {
-  box-sizing:border-box;
+    box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: linear-gradient(180deg, #0F0137 -50%, #112A5B 69.71%, #0E3152 150%); 
-  font-family: 'Source Sans Pro', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(180deg, #0F0137 -50%, #112A5B 69.71%, #0E3152 150%);
+    font-family: 'Source Sans Pro', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.game-ground { 
-  position:absolute;
-  width: 100%;
-  height: 200px;
-  bottom:0px;
-  left:0px;
-  background: linear-gradient(180deg, #000000 -50%, #0F0137 150%);
+.game-ground {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    bottom: 0px;
+    left: 0px;
+    background: linear-gradient(180deg, #000000 -50%, #0F0137 150%);
 }
 
-.game-container { 
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  bottom:0px;
-  left:0px;
+.game-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0px;
+    left: 0px;
 }
 
-.game-fire { 
-  position:absolute;
-  width: 254px;
-  height: 254px;
+.game-fire {
+    position: absolute;
+    width: 254px;
+    height: 254px;
+    bottom: 140px;
+    left: 800px;
+    transform: scale(1);
+    background: url(/images/fire.png) no-repeat no-repeat;
+}
 
-  bottom:140px;
-  left:800px;
-  transform: scale(1);
-  background: url(/images/fire.png) no-repeat no-repeat;
+a {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 1;
+    text-decoration: none;
+    color: #fff;
+}
+
+a:nth-child(1) {
+    font-family: Vampiro One;
+    animation: neon1 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon1 {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 30px #ff1177, 0 0 20px #ff1177, 0 0 40px #ff1177, 0 0 50px #ff1177, 0 0 10px #ff1177;
+    }
+    to {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff1177, 0 0 35px #ff1177, 0 0 20px #ff1177, 0 0 30px #ff1177, 0 0 35px #ff1177;
+    }
+}
+
+@media (max-width: 650px) {
+    p {
+        font-size: 3.5em;
+    }
 }
 
 .player-info {
-  position: absolute;
-  bottom: 0;
-  left:0;
-  padding: 1em;
-  display: flex;
-  gap: 0.5em;
-  align-items: flex-end
-}
-label {
-  display: block;
-  font-weight: bold;
-  color: #FFFFFF; 
-}
-input[type="text"],
-button {
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 18px;
-  height: 44px;
-  border-radius: 4px;
-  outline: 0;
-}
-input[type="text"] {
-  outline: 0;
-  padding-left: 0.5em;
-  border: 3px solid #222034;
-  width: 150px;
-  text-transform: uppercase;
-}
-input[type="text"]:focus {
-  border-color: #f000ff;
-}
-button {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
-  background: #59ff5a;
-  border: 0;
-  border-bottom: 2px solid #1e830b;
-  cursor: pointer;
-}
-button:active {
-  position: relative;
-  top: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1em;
+    display: flex;
+    gap: 0.5em;
+    align-items: flex-end
 }
 
+label {
+    display: block;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+input[type="text"],
+button {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    height: 44px;
+    border-radius: 4px;
+    outline: 0;
+}
+
+input[type="text"] {
+    outline: 0;
+    padding-left: 0.5em;
+    border: 3px solid #222034;
+    width: 150px;
+    text-transform: uppercase;
+}
+
+input[type="text"]:focus {
+    border-color: #f000ff;
+}
+
+button {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: #59ff5a;
+    border: 0;
+    border-bottom: 2px solid #1e830b;
+    cursor: pointer;
+}
+
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+
 /* Characters */
+
 .grid-cell {
-  position: absolute;
-  width: 128px;
-  height: 128px;
+    position: absolute;
+    width: 128px;
+    height: 128px;
 }
+
+
 /* Anim*/
+
 .Character {
-  transition: transform 0.4s;
+    transition: transform 0.4s;
 }
+
+
 /* Alway Top*/
+
 .Character.you {
-  z-index: 1;
+    z-index: 1;
 }
+
 .Character.you .Character_you-arrow {
-  display: block;
+    display: block;
 }
+
 .Character_you-arrow {
-  display: none;
-  position: absolute;
-  top: -30px;
-  left: 60px;
-  width: 7px;
-  height: 5px;
-  background: url(/images/arrow.png) no-repeat no-repeat;
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: 60px;
+    width: 7px;
+    height: 5px;
+    background: url(/images/arrow.png) no-repeat no-repeat;
 }
+
 .Character_sprite {
-  background: url(/images/body.png);
+    background: url(/images/body.png);
 }
 
 .Character_ear {
-  overflow: hidden;
-  background: url(/images/ear.png);
-}
-[data-ear="ear1"] .Character_ear {
-  background-position-x: 0px;
-}
-[data-ear="ear2"] .Character_ear {
-  background-position-x: 128px;
-}
-[data-ear="ear3"] .Character_ear {
-  background-position-x: 256px;
-}
-[data-ear="ear4"] .Character_ear {
-  background-position-x: 384px;
-}
-.Character_head {
-  overflow: hidden;
-  background: url(/images/head.png);
-}
-[data-head="head1"] .Character_head {
-  background-position-x: 0px;
-}
-[data-head="head2"] .Character_head {
-  background-position-x: 128px;
-}
-[data-head="head3"] .Character_head {
-  background-position-x: 256px;
-}
-[data-head="head4"] .Character_head {
-  background-position-x: 384px;
-}
-/* container*/
-.Character_name-container {
-  position: absolute;
-  top: -18px;
-  left: 40px;
-  font-size: 10px;
-  padding: 1px 2px 1px;
-  border-radius: 3px;
-  background: #333;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  white-space: nowrap;
+    overflow: hidden;
+    background: url(/images/ear.png);
 }
 
+[data-ear="ear1"] .Character_ear {
+    background-position-x: 0px;
+}
+
+[data-ear="ear2"] .Character_ear {
+    background-position-x: 128px;
+}
+
+[data-ear="ear3"] .Character_ear {
+    background-position-x: 256px;
+}
+
+[data-ear="ear4"] .Character_ear {
+    background-position-x: 384px;
+}
+
+.Character_head {
+    overflow: hidden;
+    background: url(/images/head.png);
+}
+
+[data-head="head1"] .Character_head {
+    background-position-x: 0px;
+}
+
+[data-head="head2"] .Character_head {
+    background-position-x: 128px;
+}
+
+[data-head="head3"] .Character_head {
+    background-position-x: 256px;
+}
+
+[data-head="head4"] .Character_head {
+    background-position-x: 384px;
+}
+
+
+/* container*/
+
+.Character_name-container {
+    position: absolute;
+    top: -18px;
+    left: 40px;
+    font-size: 10px;
+    padding: 1px 2px 1px;
+    border-radius: 3px;
+    background: #333;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
