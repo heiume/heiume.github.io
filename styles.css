@@ -4,16 +4,18 @@
 
 html,
 body {
-    margin: 0;
-    padding: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(180deg, #0F0137 -50%, #112A5B 69.71%, #0E3152 150%);
-    font-family: 'Source Sans Pro', sans-serif;
+    overflow: hidden;
+    font-family: 'M PLUS 1', sans-serif
+}
+
+text {
+    font-family: 'M PLUS 1', sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden
 }
 
 .game-ground {
@@ -214,7 +216,7 @@ button:active {
 .Character_name-container {
     position: absolute;
     top: -18px;
-    left: 40px;
+    left: 30px;
     font-size: 10px;
     padding: 1px 2px 1px;
     border-radius: 3px;
