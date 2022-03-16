@@ -22,6 +22,7 @@ function getKeyString(x, y) {
 function createName() {
     const prefix = randomFromArray([
         "COOL",
+        "BEST",
         "SUPER",
         "HIP",
         "SMUG",
