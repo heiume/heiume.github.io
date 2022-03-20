@@ -7,8 +7,11 @@ const mapData = {
 };
 
 // Options for Player Colors... these are in the same order as our sprite sheet
+const playerState = ["idle", "rest", "marshmallow", "firewood"];
 const playerEar = ["ear1", "ear2", "ear3", "ear4"];
 const playerHead = ["head1", "head2", "head3", "head4"];
+
+const playerLeg = ["idle", "walk"];
 
 function randomFromArray(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -29,12 +32,9 @@ function createName() {
         "COOL",
         "SILKY",
         "GOOD",
-        "SAFE",
         "DEAR",
         "DAMP",
         "WARM",
-        "RICH",
-        "LONG",
         "DARK",
         "SOFT",
         "BUFF",
@@ -123,9 +123,12 @@ function getRandomSafeSpot() {
                 let el = playerElements[key];
 
                 // Now update the DOM
+
                 el.querySelector(".Character_name").innerText = characterState.name;
                 el.setAttribute("data-ear", characterState.ear);
                 el.setAttribute("data-head", characterState.head);
+                el.setAttribute("data-leg", characterState.leg);
+                //el.setAttribute("data-leg", characterState.leg);
 
                 const left = 16 * characterState.x + "px";
                 const bottom = 16 * characterState.y - 4 + "px";
@@ -133,6 +136,7 @@ function getRandomSafeSpot() {
             })
         })
         allPlayersRef.on("child_added", (snapshot) => {
+
                 //player tree
                 const addedPlayer = snapshot.val();
                 const characterElement = document.createElement("div");
@@ -143,15 +147,17 @@ function getRandomSafeSpot() {
                     characterElement.classList.add("you");
                 }
                 characterElement.innerHTML = (`
+                
       <div class="Character_shadow grid-cell"></div>
+      <div class="Character_leg grid-cell"></div>
       <div class="Character_sprite grid-cell"></div>
       <div class="Character_ear grid-cell"></div>
       <div class="Character_head grid-cell"></div>
       <div class="Character_name-container">
-        <span class="Character_name"></span>
-        <span class="Character_coins">0</span>
+      <span class="Character_name"></span>
       </div>
-      <div class="Character_you-arrow"></div>
+      <div class="Character_arrow"></div>
+
     `);
                 playerElements[addedPlayer.id] = characterElement;
 
@@ -162,6 +168,9 @@ function getRandomSafeSpot() {
                 characterElement.setAttribute("data-ear", addedPlayer.ear);
                 //face
                 characterElement.setAttribute("data-head", addedPlayer.head);
+                //leg
+                characterElement.setAttribute("data-leg", addedPlayer.leg);
+
                 //pos
                 const left = 16 * addedPlayer.x + "px";
                 const bottom = 16 * addedPlayer.y - 4 + "px";
