@@ -7,15 +7,11 @@
     <link rel="stylesheet " href="/styles.css">
     <link rel="stylesheet " href="/player.css">
     <link rel="stylesheet " href="/game.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Flow+Block&family=Major+Mono+Display&family=Neucha&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet " href="/main.css">
 
 </head>
 
 <body>
-    <text>Good Night</text>
-
     <div class="game-container">
     </div>
     <div class="game-ground">
@@ -56,6 +52,36 @@
 
     <script src="app.js"></script>
     <script src="KeyPressListener.js"></script>
+    <script src="main.js"></script>
+
+    <h2>1. Start your Webcam</h2>
+    <button id="webcamButton">Start webcam</button>
+
+    <div class="videos">
+        <span>
+          <h3>Local Stream</h3>
+          <video id="webcamVideo" autoplay playsinline></video>
+        </span>
+        <span>
+          <h3>Remote Stream</h3>
+          <video id="remoteVideo" autoplay playsinline></video>
+        </span>
+
+    </div>
+    <h2>2. Create a new Call</h2>
+    <button id="callButton" disabled>Create Call (offer)</button>
+
+    <h2>3. Join a Call</h2>
+    <p>Answer the call from a different browser window or device</p>
+
+    <input id="callInput" />
+    <button id="answerButton" disabled>Answer</button>
+
+    <h2>4. Hangup</h2>
+
+    <button id="hangupButton" disabled>Hangup</button>
+
+    <script type="module" src="/main.js"></script>
 
 </body>
 
