@@ -5,13 +5,58 @@
     <meta charset="UTF-8" />
     <title>Good Night</title>
     <link rel="stylesheet " href="/styles.css">
+    <link rel="stylesheet " href="/player.css">
+    <link rel="stylesheet " href="/game.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Flow+Block&family=Major+Mono+Display&family=Neucha&family=VT323&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
     <text>Good Night</text>
+
+    <div class="game-container">
+    </div>
+    <div class="game-ground">
+    </div>
+    <div class="game-fire">
+    </div>
+
+    <div class="player-info">
+        <div>
+            <label for="player-name">Your Name</label>
+            <input id="player-name" maxlength="10" type="text" />
+        </div>
+        <div>
+            <button id="player-ear">Change Ear</button>
+            <button id="player-head">Change Head</button>
+        </div>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+        // NOTE - INCLUDE YOUR FIREBASE CONFIG HERE FOR ANYTHING TO WORK:
+        //REMEMBER TO HIDE THIS CONFIG
+        const firebaseConfig = {
+            apiKey: "AIzaSyDxd4eLDdG_SYEeASTeEjbObLyll60b2q4",
+            authDomain: "good-night-f3a11.firebaseapp.com",
+            databaseURL: "https://good-night-f3a11-default-rtdb.firebaseio.com",
+            projectId: "good-night-f3a11",
+            storageBucket: "good-night-f3a11.appspot.com",
+            messagingSenderId: "68645250637",
+            appId: "1:68645250637:web:f720e99c9a1c8696175e04",
+            measurementId: "G-BLPV76SF65"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="app.js"></script>
+    <script src="KeyPressListener.js"></script>
+
 </body>
 
 </html>

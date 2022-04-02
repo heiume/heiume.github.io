@@ -1,0 +1,134 @@
+.player-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1em;
+    display: flex;
+    gap: 0.5em;
+    align-items: flex-end
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+input[type="text"],
+button {
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 18px;
+    height: 44px;
+    border-radius: 4px;
+    outline: 0;
+}
+
+input[type="text"] {
+    outline: 0;
+    padding-left: 0.5em;
+    border: 3px solid #222034;
+    width: 150px;
+    text-transform: uppercase;
+}
+
+input[type="text"]:focus {
+    border-color: #f000ff;
+}
+
+button {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: #59ff5a;
+    border: 0;
+    border-bottom: 2px solid #1e830b;
+    cursor: pointer;
+}
+
+button:active {
+    position: relative;
+    top: 1px;
+}
+
+.grid-cell {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+    bottom: 395px;
+}
+
+.Character_sprite {
+    background: url(/img/body.png);
+}
+
+[data-state="idle"] .Character_sprite {
+    background-position-x: 0px;
+}
+
+[data-state="rest"] .Character_sprite {
+    background-position-x: 128px;
+}
+
+[data-state="marshmallow"] .Character_sprite {
+    background-position-x: 256px;
+}
+
+[data-state="firewood"] .Character_sprite {
+    background-position-x: 384px;
+}
+
+.Character_ear {
+    overflow: hidden;
+    background: url(/img/ear.png);
+}
+
+[data-ear="ear1"] .Character_ear {
+    background-position-x: 0px;
+}
+
+[data-ear="ear2"] .Character_ear {
+    background-position-x: 128px;
+}
+
+[data-ear="ear3"] .Character_ear {
+    background-position-x: 256px;
+}
+
+[data-ear="ear4"] .Character_ear {
+    background-position-x: 384px;
+}
+
+.Character_head {
+    overflow: hidden;
+    background: url(/img/head.png);
+}
+
+[data-head="head1"] .Character_head {
+    background-position-x: 0px;
+}
+
+[data-head="head2"] .Character_head {
+    background-position-x: 128px;
+}
+
+[data-head="head3"] .Character_head {
+    background-position-x: 256px;
+}
+
+[data-head="head4"] .Character_head {
+    background-position-x: 384px;
+}
+
+.Character_name-container {
+    position: absolute;
+    top: -18px;
+    left: 40px;
+    font-size: 10px;
+    border-radius: 3px;
+    padding: 1px 2px 1px;
+    background: #333;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
