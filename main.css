@@ -5,12 +5,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: left;
     color: white;
-    margin: 80px 10px;
 }
 
 video {
-    width: 10vw;
-    height: 10vw;
+    width: 5vw;
+    height: 5vw;
     margin: 2rem;
     background: #2c3e50;
 }
@@ -18,5 +17,5 @@ video {
 .videos {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
 }
