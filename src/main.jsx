@@ -1,7 +1,17 @@
-import "./style.css";
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
 
-import firebase from "firebase/app.js";
-import "firebase/firestore";
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+)
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -16,17 +26,18 @@ const firebaseConfig = {
 };
 
 if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-
-const server = {
-  iceServers: [
-    {
-      urls: ["stun:stun1.1google.com:19302", "stun:stun2.1google.com:19302"],
-    },
-  ],
-  iceCandidatesPoolSize: 10,
-};
+    firebase.initializeApp(firebaseConfig);
+  }
+  const firestore = firebase.firestore();
+  
+  const servers = {
+    iceServers: [
+      {
+        urls: ['stun:stun1.l.google.com:19302', 'stun:stun2.l.google.com:19302'],
+      },
+    ],
+    iceCandidatePoolSize: 10,
+  };
 
 //Global State
 let pc = new RTCPeerConnection(servres);
