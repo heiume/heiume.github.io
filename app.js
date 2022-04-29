@@ -21,24 +21,9 @@ function getKeyString(x, y) {
 //Name
 function createName() {
     const prefix = randomFromArray([
-        "COOL",
-        "BEST",
-        "SUPER",
-        "HIP",
-        "SMUG",
-        "COOL",
-        "SILKY",
+
         "GOOD",
-        "SAFE",
-        "DEAR",
-        "DAMP",
-        "WARM",
-        "RICH",
-        "LONG",
-        "DARK",
-        "SOFT",
-        "BUFF",
-        "DOPE",
+
     ]);
     const animal = randomFromArray([
         "FRIEND",
@@ -149,7 +134,7 @@ function getRandomSafeSpot() {
       <div class="Character_head grid-cell"></div>
       <div class="Character_name-container">
         <span class="Character_name"></span>
-        <span class="Character_coins">0</span>
+        <span class="Character_coins"></span>
       </div>
       <div class="Character_you-arrow"></div>
     `);
