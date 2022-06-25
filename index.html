@@ -4,15 +4,18 @@
 
 <head>
     <!-- -->
+    <meta charset=utf-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Cute Toolbox</title>
-    <meta charset=utf-8></meta>
     <meta name="description" content="welcome! first, enter some text, then Cute Toolbox will generate cute Fonts/Emoticon/Emoji to make your content cuter or more funny" />
+
+    <link rel="stylesheet" href="styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,64 +30,106 @@
         font-family: 'Cute Font', cursive
     }
 </style>
-
 <script src="">
 </script>
 
 <body class="">
+    <div class="main-container">
 
-    <!-- Header -->
-    <header class="">
-        <h1><b>Welcome to Cute Toolbox!</b></h1>
-        <p> First, Enter something </span>
-        </p>
-        <!--Enter-->
-        <input> <button onclick="">Random</button>
-    </header>
+        <div class="container text-align-center sans-serif">
 
-    <div>
+            <!-- Header -->
+            <h1>Cute Toolbox</h1>
+            <p>A cute little web app that lets you convert regular text into weird (and cute) unicode pseudofonts.</p>
 
+            <!-- input -->
+            <textarea id="input-text-area" rows="4" cols="60" disabled placeholder="Type something"></textarea><br>
+
+            <!--container-->
+            <!--Fonts Page-->
+            <!--Todo: -->
+            <div>
+
+            </div>
+            <!--顏文字Emoticon Page-->
+            <!--Todo: -->
+            <div>
+
+            </div>
+            <!--Emoji Page-->
+            <!--Todo: -->
+            <div>
+
+            </div>
+            <div class="flex-container">
+                <label class="text-align-center">Select Pseudofont
+                    <select id="font-select" name="fontlist" title="Font Selection">
+                    </select>
+                </label>
+                <br>
+
+                <label class="text-align-center">Select Text Style
+                    <select id="font-style-select" name="font-styles" title="Style Selection">
+                        <option value="shift-normal" selected>None</option>
+                        <option value="shift-upper">Uppercase</option>
+                        <option value="shift-lower">Lowercase</option>
+                        <option value="shift-alternate">Alternate Case</option>
+                        <option value="spaced">Spaced</option>
+                        <option value="reverse">Reversed</option>
+                    </select>
+                </label>
+            </div>
+
+            <!--Output-->
+            <div class="container text-align-center text-size-large">
+                <p title="Click to copy" id="output-text" class="break-all"></p>
+            </div>
+
+            <!--container-->
+            <div class="container">
+                <details>
+                    <summary id="view-all-conversions">View All Fonts</summary>
+                    <ul id="output-list" class="break-all">
+                    </ul>
+                </details>
+            </div>
+
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="container container--thin">
+
+            <div class="text-size-small sans-serif text-align-center">
+
+                <div class="text-size-small sans-serif text-align-center">
+                    <p>by <a href="https://youtube.com/c/heiume" target="_blank">heiume</a></p>
+
+                    <a href="https://discord.gg/wdnEHRUqYc" class="fa fa-discord">
+                        𝐉𝐎𝐈𝐍 𝐌𝐘 𝐃𝐈𝐒𝐂𝐎𝐑𝐃
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor" class="bi bi-discord">
+                    <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
+                    </svg>
+                    </a>
+                </div>
+                <!--socaial ac-->
+                <!-- Add font awesome icons -->
+
+                <a href="https://youtube.com/c/heiume" class="fa fa-youtube"></a>
+                <a href="https://twitter.com/heiume3D" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/heiume3d/" class="fa fa-instagram"></a>
+                <a href="https://www.facebook.com/chauyihei/" class="fa fa-facebook"></a>
+            </div>
+        </footer>
 
     </div>
-
-    <!--Output-->
-    <div>
-
-        <button onclick="">Copy</button>
-    </div>
-
-
-    <!--Fonts Page-->
-    <!--Todo: -->
-    <div>
-
-    </div>
-    <!--顏文字Emoticon Page-->
-    <!--Todo: -->
-    <div>
-
-    </div>
-    <!--Emoji Page-->
-    <!--Todo: -->
-    <div>
-
-    </div>
-
-    <!-- Footer -->
-    <footer class="">
-        <p>by <a href="https://youtube.com/c/heiume" target="_blank">heiume</a></p>
-        <!--socaial ac-->
-        <!-- Add font awesome icons -->
-        <a href="https://discord.gg/wdnEHRUqYc" class="fa fa-discord"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-discord" viewBox="0 0 16 16">
-            <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
-          </svg></a>
-        <a href="https://youtube.com/c/heiume" class="fa fa-youtube"></a>
-        <a href="https://twitter.com/heiume3D" class="fa fa-twitter"></a>
-        <a href="https://www.instagram.com/heiume3d/" class="fa fa-instagram"></a>
-        <a href="https://www.facebook.com/chauyihei/" class="fa fa-facebook"></a>
-
-    </footer>
-
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script defer>
+        document.body.innerHTML = twemoji.parse(document.body.innerHTML);
+    </script>
+    <script defer src="converter.js"></script>
 </body>
+
+
 
 </html>
