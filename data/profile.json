@@ -22,7 +22,7 @@
     }
   ],
   "socials": [
-    { "label": "GitHub", "url": "https://github.com/ecjojo", "icon": "github" },
+    { "label": "FB", "url": "https://www.facebook.com/chauyihei", "icon": "facebook" },
     { "label": "LinkedIn", "url": "https://www.linkedin.com/in/ecjojo/", "icon": "linkedin" },
     { "label": "Blog", "url": "https://ecjojo.blogspot.com/", "icon": "blog" },
     { "label": "Patreon", "url": "https://www.patreon.com/c/ecjojoDev", "icon": "patreon" },
